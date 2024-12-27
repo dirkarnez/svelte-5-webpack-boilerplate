@@ -1,2 +1,2 @@
-# Dummy-Social
-A dummy social netwokr in development
+svelte-5-webpack-boilerplate
+============================
