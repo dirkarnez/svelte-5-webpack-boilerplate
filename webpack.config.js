@@ -1,54 +1,61 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const Dotenv = require('dotenv-webpack');
+const path = require('path');
+
+const mode = process.env.NODE_ENV || 'development';
+const prod = mode === 'production';
 
 module.exports = {
-	mode: 'development',
-	entry: './src/index.js',
+	entry: {
+		'build/bundle': ['./src/main.js']
+	},
+	resolve: {
+		alias: {
+			svelte: path.resolve('node_modules', 'svelte/src/runtime')
+		},
+		extensions: ['.mjs', '.js', '.svelte'],
+		mainFields: ['svelte', 'browser', 'module', 'main'],
+		conditionNames: ['svelte', 'browser']
+	},
 	output: {
-		path: path.resolve(__dirname, 'dist'),
-		filename: 'bundle.js',
-		publicPath: '/',
+		path: path.join(__dirname, '/public'),
+		filename: '[name].js',
+		chunkFilename: '[name].[id].js'
 	},
 	module: {
 		rules: [
 			{
-				test: /\.js?$/,
-				exclude: /node_modules/,
-				use: {
-					loader: 'babel-loader',
-				},
-			},
-			{
 				test: /\.svelte$/,
 				use: {
 					loader: 'svelte-loader',
-				},
+					options: {
+						compilerOptions: {
+							dev: !prod
+						},
+						emitCss: prod,
+						hotReload: !prod
+					}
+				}
 			},
 			{
 				test: /\.css$/,
-				use: [MiniCssExtractPlugin.loader, 'css-loader'],
-			},
-			{
-				test: /\.(jpg|jpeg|png|svg)$/,
-				use: 'file-loader',
-			},
-		],
+				use: [
+					MiniCssExtractPlugin.loader,
+					'css-loader'
+				]
+			}
+		]
 	},
-	resolve: {
-		extensions: ['.mjs', '.js', '.svelte'],
-	},
+	mode,
 	plugins: [
-		new HtmlWebpackPlugin({
-			template: path.resolve(__dirname, 'public/index.html'),
-		}),
-		new MiniCssExtractPlugin(),
-		new Dotenv(),
+		new MiniCssExtractPlugin({
+			filename: '[name].css'
+		})
 	],
+	devtool: prod ? false : 'source-map',
 	devServer: {
-		historyApiFallback: true,
-		contentBase: path.resolve(__dirname, 'dist'),
 		hot: true,
-	},
+		static: {
+			directory: path.join(__dirname, 'public'),
+		}
+	}
 };

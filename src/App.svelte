@@ -1,14 +1,30 @@
 <script>
-	import { Router, Route } from 'svelte-routing';
-	import Landing from './components/pages/Landing.svelte';
-	import Register from './components/pages/Register.svelte';
-	import Login from './components/pages/Login.svelte';
-	import Home from './components/pages/Home.svelte';
+	export let name;
 </script>
 
-<Router>
-	<Route path="/" component="{Landing}" />
-	<Route path="/register" component="{Register}" />
-	<Route path="/login" component="{Login}" />
-	<Route path="/home" component="{Home}" />
-</Router>
+<main>
+	<h1>Hello {name}!</h1>
+	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+</main>
+
+<style>
+	main {
+		text-align: center;
+		padding: 1em;
+		max-width: 240px;
+		margin: 0 auto;
+	}
+
+	h1 {
+		color: #ff3e00;
+		text-transform: uppercase;
+		font-size: 4em;
+		font-weight: 100;
+	}
+
+	@media (min-width: 640px) {
+		main {
+			max-width: none;
+		}
+	}
+</style>
