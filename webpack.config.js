@@ -1,18 +1,20 @@
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const path = require('path');
-const sveltePreprocess = require('svelte-preprocess');
-
+import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import path from "node:path";
+// const sveltePreprocess = require('svelte-preprocess');
+import { sveltePreprocess } from 'svelte-preprocess';
 const mode = process.env.NODE_ENV || 'development';
 const prod = mode === 'production';
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+    
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
-module.exports = {
+console.log(__dirname);
+export default {
 	entry: {
 		'build/bundle': ['./src/main.ts']
 	},
 	resolve: {
-		// alias: {
-		// 	svelte: path.resolve('node_modules', 'svelte/src/runtime')
-		// },
 		extensions: ['.mjs', '.js', '.ts', '.svelte'],
 		mainFields: ['svelte', 'browser', 'module', 'main'],
 		conditionNames: ['svelte', 'browser']
@@ -62,7 +64,7 @@ module.exports = {
 	devServer: {
 		hot: true,
 		static: {
-			directory: path.join(__dirname, 'public'),
+			directory:  path.join(__dirname, '/public'),
 		}
 	}
 };

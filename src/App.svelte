@@ -10,25 +10,27 @@
 	// 	}
 	// ];
 
-	import * as a from "i18next";
-	// import { createI18nStore } from "svelte-i18next";
+import * as AA from 'i18next';
+	// // import { createI18nStore } from "svelte-i18next";
 
-	i18next.init({
-		lng: 'en',
-		resources: {
-			en: {
-			translation: {
-				"key": "hello world"
-			}
-			}
-		},
-		interpolation: {
-			escapeValue: false, // not needed for svelte as it escapes by default
-		}
-	});
+	console.log(AA);
 
-	import en from './en.json';
-	import zh from './zh.json';
+	// i18next.init({
+	// 	lng: 'en',
+	// 	resources: {
+	// 		en: {
+	// 		translation: {
+	// 			"key": "hello world"
+	// 		}
+	// 		}
+	// 	},
+	// 	interpolation: {
+	// 		escapeValue: false, // not needed for svelte as it escapes by default
+	// 	}
+	// });
+
+	// import en from './en.json';
+	// import zh from './zh.json';
 
 	// addMessages('en', en);
 	// addMessages('zh', zh);

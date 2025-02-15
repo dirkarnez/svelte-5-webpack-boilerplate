@@ -1,11 +1,17 @@
 {
 	"extends": "@tsconfig/svelte/tsconfig.json",
-	"include": ["src/**/*", "src/node_modules/**/*"],
-	"exclude": ["node_modules/*", "__sapper__/*", "static/*"],
+	// "include": ["src/**/*", "src/node_modules/**/*"],
+	// "exclude": ["node_modules/*", "__sapper__/*", "static/*"],
 	"compilerOptions": {
+		"allowJs": true,
+		"checkJs": true,
+		"esModuleInterop": true,
+		"forceConsistentCasingInFileNames": true,
 		"resolveJsonModule": true,
-		"moduleResolution": "nodenext",
-		"module": "NodeNext",
-		"esModuleInterop": true
+		"skipLibCheck": true,
+		"sourceMap": true,
+		"strict": true,
+		"moduleResolution": "bundler",
+		"target": "es2022"
 	}
 }

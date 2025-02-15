@@ -13,7 +13,7 @@
 import App from './App.svelte';
 import { mount } from 'svelte';
 
-export default mount(App, { 
+mount(App, { 
 	target: document.body,
 	props: {
 		name: 'world'
