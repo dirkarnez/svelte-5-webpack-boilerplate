@@ -1,0 +1,1 @@
+- [baileyherbert/svelte-webpack-starter: 🔥 Svelte starter with Webpack 5, TypeScript, SCSS, Babel, and HMR.](https://github.com/baileyherbert/svelte-webpack-starter/tree/main)
