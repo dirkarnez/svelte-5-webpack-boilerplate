@@ -3,13 +3,12 @@
 	"scripts": {
 		"build": "cross-env NODE_ENV=production webpack",
 		"dev": "webpack serve",
-		"start": "serve public --listen 8080",
 		"validate": "svelte-check"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.0.0",
 		"@babel/plugin-transform-runtime": "^7.0.0",
-		"@babel/preset-env": "^7.0.0",
+		"@babel/preset-env": "^7.9.0",
 		"@babel/runtime": "^7.0.0",
 		"@tsconfig/svelte": "^5.0.4",
 		"@types/node": "^22.13.4",
@@ -40,8 +39,8 @@
 		"webpack-dev-server": "^5.0.0"
 	},
 	"dependencies": {
-		"i18next": "^24.2.2",
-		"serve": "^14.0.0"
+		"@mateothegreat/svelte5-router": "^2.0.50",
+		"i18next": "^24.2.2"
 	},
 	"browserslist": [
 		"defaults"

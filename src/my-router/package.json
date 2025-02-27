@@ -1,0 +1,53 @@
+{
+  "name": "@mateothegreat/svelte5-router",
+  "version": "2.0.50",
+  "type": "module",
+  "license": "MIT",
+  "types": "./router.svelte.d.ts",
+  "exports": "./index.ts",
+  "files": [
+    "./**/*"
+  ],
+  "readme": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mateothegreat/svelte5-router.git"
+  },
+  "keywords": [
+    "svelte 5",
+    "svelte 5 router",
+    "svelte 5 spa router"
+  ],
+  "scripts": {
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "release": "npm run check && rm -rf dist && cp -r src/lib dist && cp package.json docs/logo.png dist && cp docs/readme.md dist/README.md && cd dist npm version from-git",
+    "docs:build": "typedoc --footerLastModified --customTitle \"Svelte 5 Router\" ",
+    "docs:watch": "typedoc --watch --footerLastModified --customTitle \"Svelte 5 Router\" "
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^5.0.3",
+    "@tsconfig/svelte": "^5.0.4",
+    "@types/node": "^22.13.5",
+    "@typhonjs-typedoc/typedoc-theme-dmt": "^0.3.1",
+    "cpx": "^1.5.0",
+    "prettier": "^3.5.2",
+    "prettier-plugin-svelte": "^3.3.3",
+    "rimraf": "^6.0.1",
+    "svelte": "^5.20.4",
+    "svelte-check": "^4.1.4",
+    "svelte-preprocess": "^6.0.3",
+    "typedoc": "^0.27.9",
+    "typedoc-github-theme": "^0.2.1",
+    "typedoc-plugin-extras": "^4.0.0",
+    "typedoc-plugin-include-example": "^2.0.2",
+    "typedoc-plugin-inline-sources": "^1.2.1",
+    "typedoc-plugin-mermaid": "^1.12.0",
+    "typedoc-plugin-pages": "^1.1.0",
+    "typescript": "^5.7.3",
+    "vite-tsconfig-paths": "^5.1.4",
+    "vitest": "^3.0.7"
+  },
+  "peerDependencies": {
+    "svelte": "^5.0.0"
+  }
+}

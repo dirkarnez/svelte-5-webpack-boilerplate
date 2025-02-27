@@ -52,6 +52,8 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CSSMinimizerPlugin from 'css-minimizer-webpack-plugin';
 import SvelteCheckPlugin from 'svelte-check-plugin';
 
+import type { Options as TSLoaderOptions } from 'ts-loader'
+
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 
 import fs from 'fs';
@@ -146,8 +148,16 @@ const config: Configuration = {
 			// Rule: TypeScript
 			{
 				test: /\.ts$/,
-				use: 'ts-loader',
-				exclude: /node_modules/
+				exclude: /node_modules/,
+				use: [
+					{
+						loader: 'ts-loader',
+						options: {
+							onlyCompileBundledFiles: true,
+							transpileOnly: true,
+						}
+					}
+				]
 			}
 		]
 	},

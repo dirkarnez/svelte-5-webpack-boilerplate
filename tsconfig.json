@@ -6,6 +6,7 @@
 		"target": "esnext",
 		"module": "esnext",
 		"importsNotUsedAsValues": "remove",
+		"importHelpers": true,
 		"verbatimModuleSyntax": true,
 		"isolatedModules": true,
 		"esModuleInterop": true,
